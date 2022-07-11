@@ -6,11 +6,13 @@
 ### Install Database
 ```shell
 rpm -ivh http://repo.mysql.com/mysql57-community-release-el7.rpm
-#rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+#	
 yum install mysql-server -y
 systemctl start mysqld
 systemctl enable mysqld
-grep 'temporary password' /var/log/mysqld.log
+grep 'temporary password' /var/log/mysqld.log        ( t+w8X2tePu!z  (Redhat@123)
+)    
+
 mysql_secure_installation
 ```
 
@@ -27,7 +29,7 @@ rpm -ivh bellsoft-jdk11.0.4-linux-amd64.rpm
 ```shell
 echo 'vm.max_map_count=262144' >/etc/sysctl.conf
 sysctl -p
-echo '* - nofile 80000' >>/etc/security/limits.conf
+ 
 sed -i -e '/query_cache_size/ d' -e '$ a query_cache_size = 15M' /etc/my.cnf
 systemctl restart mysqld
 ```
@@ -42,10 +44,10 @@ mysql>
 ```
 ### Install Sonarqube
 ```shell
+cd /opt
 yum install unzip -y
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip
-cd /opt
-unzip ~/sonarqube-7.9.1.zip
+unzip  sonarqube-7.9.1.zip
 mv sonarqube-7.9.1 sonar
 ```
 ### Configure Sonarqube
@@ -63,3 +65,6 @@ sed -i -e '/^#RUN_AS_USER/ c RUN_AS_USER=sonar' /opt/sonar/bin/linux-x86-64/sona
 /opt/sonar/logs
 ```
 
+
+
+sonar: 0dcdfff0a507509e4f8728654593bf0b2f7c6559
